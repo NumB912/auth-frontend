@@ -38,7 +38,7 @@ const ProfileInfo = ({ profile, setIsOpenUploadImage, isOpenUploadImage, setIsOp
                     </div>
                  <button
                         onClick={handleSignOut}
-                        className='group w-full mt-2 py-2 px-4 bg-red-500 hover:bg-red-600 active:scale-95 text-white rounded-md text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:shadow-red-200 hover:shadow-md'
+                        className='group w-full mt-2 py-2 px-4 border hover:border-red-600 active:scale-95 text-red-600 rounded-md text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:shadow-red-200 hover:shadow-md'
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

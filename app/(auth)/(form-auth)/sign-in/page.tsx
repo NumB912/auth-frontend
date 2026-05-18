@@ -23,11 +23,14 @@ const loginHandle = async ({ email, password }: { email: string, password: strin
         'Content-type': 'application/json'
       }
     }).catch((error) => {
-      if (error?.response?.data.message == 'EMAIL_OR_PASSWORD_INCORRECT') {
-        throw Error('Lỗi không đúng tài khoản hoặc mật khẩu')
+      if (error?.message == 'EMAIL_OR_PASSWORD_INCORRECT') {
+        throw new Error('Lỗi không đúng tài khoản hoặc mật khẩu')
       }
-      console.log(error)
-      throw Error(error?.response?.data.message ?? "Lỗi trong quá trình thực thi")
+
+      if(error.message=='NOT FOUND EMAIL OR NOT MATCH PASSWORD'){
+         throw Error('Lỗi không đúng tài khoản hoặc mật khẩu')
+      }
+      throw new Error(error.message ?? "Lỗi trong quá trình thực thi")
     })
 }
 

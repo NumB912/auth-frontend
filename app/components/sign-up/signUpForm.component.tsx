@@ -32,8 +32,6 @@ const signUpHandle = async ({ token, password, confirmPassword, firstName, lastN
 }
 
 const SignUpPage = ({ token, email }: { token: string, email: string }) => {
-
-    
     const [error, setError] = useState<string>("")
     const route = useRouter()
     const { register, formState: { errors, isSubmitting }, handleSubmit, clearErrors, setError: setErrorReactForm, getValues } = useForm<ValidateSignUpInput>({
@@ -69,7 +67,7 @@ const SignUpPage = ({ token, email }: { token: string, email: string }) => {
             const confirmPassword = getValues("confirmPassword")
             const password = getValues("password")
             const firstName = getValues("firstName")
-            const lastName = getValues("password")
+            const lastName = getValues("lastName")
             await mutateAsync({
                 confirmPassword: confirmPassword,
                 password: password,
@@ -77,6 +75,11 @@ const SignUpPage = ({ token, email }: { token: string, email: string }) => {
                 firstName: firstName,
                 token: token
             })
+
+            console.log(confirmPassword)
+            console.log(password)
+            console.log(firstName)
+            console.log(lastName)
             route.replace('/sign-in')
         } catch (error) {
             console.error('Lỗi trong quá trình thực hiện', error)
