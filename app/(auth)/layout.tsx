@@ -1,18 +1,13 @@
 import React from 'react'
-import '@/app/globals.css'
-import ReactQueryProvider from './provider/reactQueryProvider'
 const layout = (
     { children }
         : { children: React.ReactNode }) => {
-
     return (
         <html>
             <body>
-                <ReactQueryProvider>
-                <div className='bg-gray-100 min-h-screen'>
+                <div className='flex justify-center items-center bg-gray-100 h-screen'>
                     {children}
-                </div>  
-                </ReactQueryProvider>
+                </div>
             </body>
         </html>
     )
