@@ -17,7 +17,6 @@ const ConfirmOtp = async ({ email, otp }: { email: string, otp: string }): Promi
     email: email,
     otp: otp,
   })).catch(error => {
-    console.log(error)
     if (error?.message === 'OTP_ERROR') {
       throw new Error("OTP không đúng vui lòng thử lại")
     }
