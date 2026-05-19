@@ -6,6 +6,10 @@ class ClientAxios {
   private axiosInstance: AxiosInstance;
 
   private constructor() {
+    if(!process.env.NEXT_PUBLIC_API_URL){
+      throw new Error("Lỗi trong quá trình thực thi")
+    }
+
     this.axiosInstance = axios.create({
       baseURL: process.env.NEXT_PUBLIC_API_URL,
       timeout: 5000,

@@ -13,6 +13,7 @@ import Label from '@/app/components/label'
 
 const loginHandle = async ({ email, password }: { email: string, password: string }) => {
   await new Promise((rel) => setTimeout(rel, 500))
+
   await AxiosHttp.getInstance().post<{ token: string }>('/auth/loginWithEmail',
     JSON.stringify({
       email: email,
@@ -24,6 +25,7 @@ const loginHandle = async ({ email, password }: { email: string, password: strin
         'Content-type': 'application/json'
       }
     }).catch((error) => {
+      console.log(error)
       if (error?.message == 'EMAIL_OR_PASSWORD_INCORRECT') {
         throw new Error('Lỗi không đúng tài khoản hoặc mật khẩu')
       }

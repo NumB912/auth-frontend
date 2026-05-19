@@ -5,7 +5,7 @@ import logo from '@/app/public/photo/logo.png'
 const layout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div className='flex max-w-5xl max-h-2xl justify-between w-full p-5'>
-            <div className='left-side w-full p-6 border border-gray-300 shadow-xl'>
+            <div className='left-side w-full p-6 border border-gray-200 shadow-xl bg-white'>
                 <div className='flex justify-between items-center w-full'>
 
                     <div>
