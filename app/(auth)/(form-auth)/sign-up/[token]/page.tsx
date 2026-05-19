@@ -7,7 +7,6 @@ export default async function Page({ params }: { params: Promise<{ token: string
     const { token } = await params
     let email = ''
     try {
-        console.log(token)
         const payload = await verifyToken(token)
         email = payload.email
     } catch (error) {

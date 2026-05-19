@@ -24,9 +24,8 @@ const signUpHandle = async ({ token, password, confirmPassword, firstName, lastN
                 'X-Register-Token': token
             }
         },
-    ).then(res=>{
-        console.log(res)
-    }).catch(err => {
+    ).catch(err => {
+        console.log(err)
         throw new Error(err.response?.data?.message ?? "Lỗi trong quá trình thực thi")
     })
 }
@@ -50,6 +49,9 @@ const SignUpPage = ({ token, email }: { token: string, email: string }) => {
         mutationFn: signUpHandle,
         onError: (error) => {
             setError(error.message)
+        },
+        onSuccess:()=>{
+            setError("")
         }
     })
 
@@ -75,11 +77,6 @@ const SignUpPage = ({ token, email }: { token: string, email: string }) => {
                 firstName: firstName,
                 token: token
             })
-
-            console.log(confirmPassword)
-            console.log(password)
-            console.log(firstName)
-            console.log(lastName)
             route.replace('/sign-in')
         } catch (error) {
             console.error('Lỗi trong quá trình thực hiện', error)
